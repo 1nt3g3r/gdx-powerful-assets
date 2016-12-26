@@ -1,7 +1,9 @@
 package ua.com.integer.gdx.powerful.assets.loader;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.utils.Json;
 
 public interface PowAssetLoader {
-    public Object loadAsset(FileHandle fileHandle);
+    Json JSON = new Json();
+    Object loadAsset(FileHandle fileHandle);
 }

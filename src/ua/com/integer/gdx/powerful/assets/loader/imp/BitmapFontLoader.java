@@ -9,15 +9,13 @@ import ua.com.integer.gdx.powerful.assets.PowAssets;
 import ua.com.integer.gdx.powerful.assets.loader.PowAssetLoader;
 
 public class BitmapFontLoader implements PowAssetLoader {
-    private Json json = new Json();
-
     @Override
     public Object loadAsset(FileHandle fileHandle) {
         String name = fileHandle.nameWithoutExtension();
         FileHandle parent = fileHandle.parent();
         FileHandle fontConfig = parent.child(name + ".bfdesc");
         if (fontConfig.exists()) {
-            ObjectMap<String, String> bitmapFontParams = json.fromJson(ObjectMap.class, fontConfig);
+            ObjectMap<String, String> bitmapFontParams = JSON.fromJson(ObjectMap.class, fontConfig);
             String atlasName = bitmapFontParams.get("atlas");
             String regionName = bitmapFontParams.get("region");
 

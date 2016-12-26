@@ -2,10 +2,12 @@ package ua.com.integer.gdx.powerful.assets;
 
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.I18NBundle;
 import com.badlogic.gdx.utils.Json;
 
@@ -16,80 +18,97 @@ public class AssetsAccess {
     private static Localize localize;
     private static Settings sets;
 
+
     static void init(String settingsName) {
         sets = new Settings(settingsName);
         localize = new Localize();
     }
 
-    public static Texture getTexture(String name) {
+    public Texture getTexture(String name) {
         return PowAssets.getAsset(name, Texture.class);
     }
 
-    public static void unloadTexture(String name) {
+    public void unloadTexture(String name) {
         PowAssets.unloadAsset(name, Texture.class);
     }
 
-    public static AtlasRegion getRegion(String atlas, String region) {
+    public AtlasRegion getRegion(String atlas, String region) {
         return getAtlas(atlas).findRegion(region);
     }
 
-    public static TextureAtlas getAtlas(String name) {
+    public TextureAtlas getAtlas(String name) {
         return PowAssets.getAsset(name, TextureAtlas.class);
     }
 
-    public static void unloadAtlas(String name) {
+    public void unloadAtlas(String name) {
         PowAssets.unloadAsset(name, TextureAtlas.class);
     }
 
-    public static Sound getSound(String name) {
+    public Sound getSound(String name) {
         return PowAssets.getAsset(name, Sound.class);
     }
 
-    public static void unloadSound(String name) {
+    public void unloadSound(String name) {
         PowAssets.unloadAsset(name, Sound.class);
     }
 
-    public static Music getMusic(String name) {
+    public Music getMusic(String name) {
         return PowAssets.getAsset(name, Music.class);
     }
 
-    public static void unloadMusic(String name) {
+    public void unloadMusic(String name) {
         PowAssets.unloadAsset(name, Music.class);
     }
 
-    public static <T extends Object> T getJsonConfig(String name, Class configClass) {
+    public <T extends Object> T getJsonConfig(String name, Class configClass) {
         String jsonString = PowAssets.getAsset(name, String.class);
         return (T) json.fromJson(configClass, jsonString);
     }
 
-    public static void unloadJsonConfig(String name) {
+    public void unloadJsonConfig(String name) {
         PowAssets.unloadAsset(name, String.class);
     }
 
-    public static BitmapFont getFont(String name) {
+    public BitmapFont getFont(String name) {
         return PowAssets.getAsset(name, BitmapFont.class);
     }
 
-    public static void unloadFont(String name) {
+    public void unloadFont(String name) {
         PowAssets.unloadAsset(name, BitmapFont.class);
     }
 
-    public static I18NBundle getI18NBundle(String name, String locale) {
+    public I18NBundle getI18NBundle(String name, String locale) {
         PowAssets.unloadAsset(name, I18NBundle.class);
         I18NLoader loader = (I18NLoader) PowAssets.getAssetLoader(I18NBundle.class);
         loader.setLocale(locale);
         return PowAssets.getAsset(name, I18NBundle.class);
     }
 
-    public static void unloadI18NBundle(String name) {
+    public void unloadI18NBundle(String name) {
         PowAssets.unloadAsset(name, I18NBundle.class);
     }
 
-    public static Localize localize() {
+    public Skin getSkin(String name) {
+        return PowAssets.getAsset(name, Skin.class);
+    }
+
+    public void unloadSkin(String name) {
+        PowAssets.unloadAsset(name, Skin.class);
+    }
+
+    public Pixmap getPixmap(String name) {
+        return PowAssets.getAsset(name, Pixmap.class);
+    }
+
+    public void unloadPixmap(String name) {
+        PowAssets.unloadAsset(name, Pixmap.class);
+    }
+
+    public Localize localize() {
         return localize;
     }
 
-    public static Settings sets() {
+    public Settings sets() {
         return sets;
     }
 }
