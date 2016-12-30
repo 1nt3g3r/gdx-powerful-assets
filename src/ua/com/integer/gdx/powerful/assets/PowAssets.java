@@ -67,14 +67,13 @@ public class PowAssets {
         return loadedAssets.get(assetClass);
     }
 
-    public static void init(String settingsName) {
-        instance.performInit(settingsName);
+    public static void init() {
+        instance.performInit();
     }
 
-    private void performInit(String settingsName) {
+    private void performInit() {
         dispose();
         PowDefaultLoaders.registerLoaders();
-        access().init(settingsName);
     }
 
     public static void dispose() {

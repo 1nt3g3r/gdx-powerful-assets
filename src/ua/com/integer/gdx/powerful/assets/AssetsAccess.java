@@ -15,14 +15,6 @@ import ua.com.integer.gdx.powerful.assets.loader.imp.I18NLoader;
 
 public class AssetsAccess {
     private static Json json = new Json();
-    private static Localize localize;
-    private static Settings sets;
-
-
-    static void init(String settingsName) {
-        sets = new Settings(settingsName);
-        localize = new Localize();
-    }
 
     public Texture getTexture(String name) {
         return PowAssets.getAsset(name, Texture.class);
@@ -102,13 +94,5 @@ public class AssetsAccess {
 
     public void unloadPixmap(String name) {
         PowAssets.unloadAsset(name, Pixmap.class);
-    }
-
-    public Localize localize() {
-        return localize;
-    }
-
-    public Settings sets() {
-        return sets;
     }
 }
