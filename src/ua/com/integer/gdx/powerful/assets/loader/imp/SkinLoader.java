@@ -16,6 +16,7 @@ public class SkinLoader implements PowAssetLoader {
             ObjectMap<String, String> paramsMap = JSON.fromJson(ObjectMap.class, skinDescription);
             String atlasName = paramsMap.get("atlas");
             TextureAtlas atlas = PowAssets.access().getAtlas(atlasName);
+
             return new Skin(fileHandle, atlas);
         } else {
             return new Skin(fileHandle);

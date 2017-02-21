@@ -44,7 +44,7 @@ public class PowDefaultLoaders {
     public static final String JSON_SUFFIX = "json";
     public static final String BITMAP_FONT_SUFFIX = "fnt";
     public static final String I18N_SUFFIX = "properties";
-    public static final String SKIN_SUFFIX = "skin";
+    public static final String SKIN_SUFFIX = "json";
 
     public static void registerLoaders() {
         registerTextureLoader();
